@@ -14,18 +14,19 @@ def calculate():
         return jsonify({'error': 'Invalid input'}), 400
 
     try:
-        if operator == '+':
-            result = int(a) + int(b)
-        elif operator == '-':
-            result = int(a) - int(b)
-        elif operator == '*':
-            result = int(a) * (b)
-        elif operator == '/':
-            result = int(a) / int(b)
-        else:
-            return jsonify({'error': 'Unsupported operator'}), 400
+        a = int(a)
+        b = int(b)
 
-        return jsonify({'result': str(result)}), 200 
+        if operator == '+':
+            result = a + b
+        elif operator == '-':
+            result = a - b
+        elif operator == '*':
+            result = a * b
+        elif operator == '/':
+            result = a / b
+
+        return jsonify({'result': result}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
