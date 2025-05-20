@@ -15,17 +15,17 @@ def calculate():
 
     try:
         if operator == '+':
-            result = a + b
+            result = int(a) + int(b)
         elif operator == '-':
-            result = a - b
+            result = int(a) - int(b)
         elif operator == '*':
-            result = a * b
+            result = int(a) * (b)
         elif operator == '/':
-            result = a / b
+            result = int(a) / int(b)
         else:
             return jsonify({'error': 'Unsupported operator'}), 400
 
-        return jsonify({'result': str(result)}), 200  # str() хийж текст болгож байна
+        return jsonify({'result': str(result)}), 200 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
